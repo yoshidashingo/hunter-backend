@@ -1,2 +1,5 @@
 node_modules
 .env
+*.zip
+.DS_Store
+.env.prod

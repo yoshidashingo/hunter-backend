@@ -1,5 +1,4 @@
 import Store from '../model/Store.js';
-
 export async function getStores(req, res) {
     const { page = 1, limit = 20 } = req.query;
 
