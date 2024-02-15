@@ -32,6 +32,6 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: hunter
         environment_name: hunter-dev
-        version_label: ${{ NOW }}
+        version_label: $NOW
         region: ap-northeast-1
         deployment_package: deploy.zip
