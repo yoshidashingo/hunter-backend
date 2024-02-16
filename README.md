@@ -10,3 +10,5 @@ npm start
 ```
 
 ### deployment
+
+AWS EB
