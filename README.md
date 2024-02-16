@@ -4,6 +4,9 @@
 API server for hunter
 
 ### Local development
+
+prepare: redis and mongodb
+
 ```
 npm i
 npm start
