@@ -34,6 +34,7 @@ export async function getStores(req, res) {
 
 
     const stores = await Store.find(conditions)
+        .select('_id name tel category address createdAt')
         .limit(limit * 1)
         .skip((page - 1) * limit)
         .sort({ createdAt: -1 })
