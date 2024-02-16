@@ -1,10 +1,16 @@
 import Store from '../model/Store.js';
 export async function getStores(req, res) {
-    const { page = 1, limit = 20, name, tel, start, end } = req.query;
+    const { page = 1, limit = 20, url, name, tel, start, end } = req.query;
     const conditions = {};
     if (name) {
         conditions['name'] = {
             $regex: new RegExp(name)
+        };
+    }
+
+    if (url) {
+        conditions['url'] = {
+            $regex: new RegExp(url)
         };
     }
 
