@@ -1,7 +1,9 @@
 import Store from '../model/Store.js';
 export async function getStores(req, res) {
     const { page = 1, limit = 20, url, name, tel, start, end } = req.query;
-    const conditions = {};
+    const conditions = {
+        "status": "done"
+    };
     if (name) {
         conditions['name'] = {
             $regex: new RegExp(name)
