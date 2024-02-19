@@ -1,6 +1,6 @@
 import Store from '../model/Store.js';
 export async function getStores(req, res) {
-    const { page = 1, limit = 20, url, name, tel, start, end } = req.query;
+    const { page = 1, limit = 20, url, name, tel, start, end, genre } = req.query;
     const conditions = {};
     if (name) {
         conditions['name'] = {
@@ -18,6 +18,10 @@ export async function getStores(req, res) {
         conditions['tel'] = tel;
     }
 
+    if (genre) {
+        conditions['category'] = genre;
+    }
+
     const JAPAN_OFFSET = '+0900';
     if (start) {
         const startDay = moment(new Date(start)).add(1, 'day').utcOffset(JAPAN_OFFSET).startOf('day').toDate();
@@ -32,7 +36,7 @@ export async function getStores(req, res) {
         }
     }
 
-
+    console.log('conditions:', conditions);
     const stores = await Store.find(conditions)
         .select('_id name tel category address createdAt')
         .limit(limit * 1)
