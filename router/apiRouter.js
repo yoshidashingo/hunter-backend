@@ -1,7 +1,8 @@
 import express from 'express';
 
 import {
-    getStores
+    getStores,
+    exportToCSV
 } from '../controller/storeController.js';
 
 import {
@@ -12,6 +13,7 @@ import {
 const app = express.Router();
 
 app.get('/stores', getStores);
+app.post('/stores/export', exportToCSV);
 app.get('/prefectures', getPrefectures);
 app.get('/areas', getAreas);
 
